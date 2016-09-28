@@ -10,3 +10,5 @@ class CreateLocations < ActiveRecord::Migration[5.0]
     end
   end
 end
+
+#Should move recorded_at to CreateCurrentWeathers
