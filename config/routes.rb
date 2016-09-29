@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'static_pages/home'
 
   resources :locations
-  route 'static_pages#locations'
+  root 'static_pages#locations'
   get 'static_pages/locations'
 
 end
