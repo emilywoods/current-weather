@@ -1,0 +1,12 @@
+<%= form_for Location.new do |l| %>
+  <%= l.label :name %>
+  <%= l.text_field :name %>
+
+  <%= l.label :latitude %>
+  <%= l.text_field :latitude %>
+
+  <%= l.label :longitude %>
+  <%= l.text_field :longitude %>
+
+  <%= l.submit "Search", class: "btn btn-primary" %>
+<% end %>

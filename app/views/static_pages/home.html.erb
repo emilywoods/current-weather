@@ -5,16 +5,9 @@
     This is the Home Page for the Weather App.
   </h2>
 
-  <%= form_for Location.new do |l| %>
-    <%= l.label :name %>
-    <%= l.text_field :name %>
 
-    <%= l.label :latitude %>
-    <%= l.text_field :latitude %>
+    <%= link_to "See list of locations", locations_path %>
 
-    <%= l.label :longitude %>
-    <%= l.text_field :longitude %>
+    <%= link_to "Get the weather for a new location", 'locations/new' %>
 
-    <%= l.submit "Search", class: "btn btn-primary" %>
-  <% end %>
 </div>
