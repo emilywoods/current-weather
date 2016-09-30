@@ -1,13 +1,20 @@
-<% provide(:title, "Home") %>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= yield(:title) | Weather App </title>
-  </head>
-  <body>
-    <h1> Weather App </h1>
-    <p>
-      This is the Home Page for the Weather App.
-    </p>
-  </body>
-</html>
+<div class="center jumbotron">
+  <h1> Welcome to the Weather App </h1>
+
+  <h2>
+    This is the Home Page for the Weather App.
+  </h2>
+
+  <%= form_for Location.new do |l| %>
+    <%= l.label :name %>
+    <%= l.text_field :name %>
+
+    <%= l.label :latitude %>
+    <%= l.text_field :latitude %>
+
+    <%= l.label :longitude %>
+    <%= l.text_field :longitude %>
+
+    <%= l.submit "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
