@@ -9,11 +9,11 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find(params[:id])
+    @location = Location.find(params[:location])
   end
 
   def create
-    @location = Location.new(location_params)
+    @location = Location.new(locations_params)
     if @location.save
       redirect_to @location
     else
