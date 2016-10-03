@@ -1,10 +1,5 @@
 <% provide(:title, 'All locations')%>
 <h1>All Locations</h1>
-
 <ul class = "locations">
-  <% @locations.each do |location| %>
-    <li>
-        <%= link_to location.name, location%>
-    </li>
-  <% end %>
+  <%= render partial: 'show'%>
 </ul>

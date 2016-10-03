@@ -3,6 +3,6 @@
   <%= @location.name %>, <%= @location.latitude %>, <%= @location.longitude%>
 </h1>
 <p>
-  <%= link_to "Edit", edit_location_path %>
+  <%= link_to "Edit", edit_location_path(@location) %>
   <%= link_to "Delete", @location, method: :delete, data: { confirm: "Are you sure?"} %>
 </p>

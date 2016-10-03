@@ -4,17 +4,6 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3" >
-    <%= form_for(@location) do |l| %>
-      <%= l.label :name %>
-      <%= l.text_field :name %>
-
-      <%= l.label :latitude %>
-      <%= l.text_field :latitude %>
-
-      <%= l.label :longitude %>
-      <%= l.text_field :longitude %>
-
-      <%= l.submit "Save Changes", class: "btn btn-primary" %>
-    <% end %>
+    <%= render partial: 'form' %>
   </div>
 </div>

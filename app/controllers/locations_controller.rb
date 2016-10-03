@@ -16,9 +16,9 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
     if @location.save
       flash[:success] = "New location added!"
-      redirect_to @location
+      render :show
     else
-      render "new"
+      render :new
     end
   end
 
@@ -29,11 +29,10 @@ class LocationsController < ApplicationController
   def update
     @location = Location.find(params[:id])
     if @location.update_attributes(location_params)
-      # Handle a successful update
       flash[:success] = "Location updated!"
       redirect_to @location
     else
-      render 'edit'
+      render :edit
     end
   end
 
