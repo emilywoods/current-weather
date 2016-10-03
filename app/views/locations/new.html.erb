@@ -1,12 +1,9 @@
-<%= form_for Location.new do |l| %>
-  <%= l.label :name %>
-  <%= l.text_field :name %>
+<% provide(:title, "New Location") %>
+<% provide(:button_text,'Create') %>
+<h1> Create a new location </h1>
 
-  <%= l.label :latitude %>
-  <%= l.text_field :latitude %>
-
-  <%= l.label :longitude %>
-  <%= l.text_field :longitude %>
-
-  <%= l.submit "Search", link_to: 'locations/create', class: "btn btn-primary" %>
-<% end %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3" >
+    <%= render 'form' %>
+  </div>
+</div>
