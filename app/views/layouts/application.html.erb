@@ -8,11 +8,20 @@
     <%= render 'layouts/shim' %>
   </head>
   <body>
+<<<<<<< 40c1c4aa52987a516ba947e3aa7d374257f070cc
     <h1>
       <% flash.each do |key,value| %>
           <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
     </h1>
     <%= yield %>
+=======
+    <%= render 'layouts/header' %>
+    <%= flash[:success] %>
+    <div class= "container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+>>>>>>> Add bootstrap-sass to implement style changes
   </body>
 </html>
