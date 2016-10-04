@@ -1,4 +1,4 @@
-class Api:V1::LocationsController < ApplicationsController
+class Api:V1::LocationsController <  Api::V1::BaseController
   respond_to :json
 
   def show
