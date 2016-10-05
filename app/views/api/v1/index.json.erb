@@ -1,0 +1,8 @@
+<% @locations.each do |location| %>
+{
+    "Name": "<%= @location.name.to_json %>",
+    "Latitude": "<%= @location.latitude.to_json %>",
+    "Longitude": "<%= @location.longitude.to_json %>"
+}
+
+<%end %>

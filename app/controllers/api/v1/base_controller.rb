@@ -12,4 +12,5 @@ class Api::V1::BaseController < ApplicationController
 
   def not_found!
     return api_error(status: 404, errors: 'Not found')
+  end
 end
