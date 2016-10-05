@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :locations
 
   #api
-  namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/'  do
+  namespace :api, :defaults => { :format => :json } do
+#  namespace :api, :path => "", defaults: { format: :json }, constraints: { subdomain: 'api' }  do
+
     namespace :v1 do
       resources :locations, only: [:index, :new, :show, :edit, :destroy]
     end
