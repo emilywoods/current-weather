@@ -235,8 +235,11 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-controller-testing (~> 1.0, >= 1.0.1)
+<<<<<<< 9e1e1cde387b9ceb2d524ee36b0700a1884f879b
   rspec (~> 3.5)
   rspec-rails (~> 3.5, >= 3.5.2)
+=======
+>>>>>>> Initial tests for layout and routes
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
