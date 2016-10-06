@@ -17,15 +17,4 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "Weather App"
   end
 
-  test "should get help" do
-    get '/help'
-    assert_response :success
-    assert_select "title", "Help | Weather App"
-  end
-
-  test "should get contact" do
-    get '/contact'
-    assert_response :success
-    assert_select "title", "Contact | Weather App"
-  end
 end
