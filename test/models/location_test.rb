@@ -33,15 +33,6 @@ class LocationTest < ActiveSupport::TestCase
     assert_not duplicate_location.valid?
   end
 
-<<<<<<< 9e1e1cde387b9ceb2d524ee36b0700a1884f879b
-  test "locations should be saved as lowercase" do
-    mixed_case_location = "London"
-    @location.name = mixed_case_location
-    @location.save
-    assert_equal mixed_case_location.downcase, @location.reload.name
-  end
-
-=======
   test "latitude should not be too long" do
   #  @location.latitude.to_s.split(".").length()
   #  assert_not @location.valid?
@@ -51,7 +42,6 @@ class LocationTest < ActiveSupport::TestCase
   #  @location.longitude.to_s.split(".").length()
   #  assert_not @location.valid?
   end
->>>>>>> Initial tests for layout and routes
 
 
 end
