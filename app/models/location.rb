@@ -6,5 +6,4 @@ class Location < ApplicationRecord
   validates :latitude, presence: true, uniqueness: { case_sensitive: false }
   validates :longitude, presence: true, uniqueness: { case_sensitive: false }
 
-
 end
