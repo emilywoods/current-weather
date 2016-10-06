@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928110615) do
+ActiveRecord::Schema.define(version: 20161006114633) do
 
   create_table "current_weathers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "description"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160928110615) do
     t.datetime "recorded_at"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.index ["latitude", "longitude"], name: "index_locations_on_latitude_and_longitude", unique: true, using: :btree
   end
 
 end
