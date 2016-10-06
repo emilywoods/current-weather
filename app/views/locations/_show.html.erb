@@ -1,5 +1,7 @@
-<% @locations.each do |location| %>
-  <li>
-      <%= link_to location.name, location%>
-  </li>
-<% end %>
+<li>
+  <%= link_to location.name , location %>
+</li>
+<p></p>
+<%= location.latitude %>
+<%= location.longitude %>
+<p></p>
