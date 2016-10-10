@@ -7,6 +7,6 @@ class WeatherController < ApplicationController
       @weather_recording.save
     else
       render :index
-  end
+    end
 
 end

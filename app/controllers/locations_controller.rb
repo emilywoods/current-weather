@@ -11,6 +11,7 @@ class LocationsController < ApplicationController
   def show
     @location = Location.find(params[:id])
 
+<<<<<<< 5da2407ee3f0004793c85330b91c07f7b64552eb
 
     weather_recording = WeatherRecording.new #new empty weather_recording
     weather_recording.location = Location.find(params[:id]) #assigns location id to weather_recording
@@ -28,6 +29,7 @@ class LocationsController < ApplicationController
       render :index
     end
   end
+
 
   def create
     @location = Location.new(location_params)
