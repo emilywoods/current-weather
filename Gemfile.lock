@@ -86,11 +86,15 @@ GEM
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    ethon (0.9.1)
+      ffi (>= 1.3.0)
     execjs (2.7.0)
     ffi (1.9.14)
     gherkin (4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -118,7 +122,11 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.1)
     multi_json (1.12.1)
+<<<<<<< 395a14088ce2e33b734a28e97d04c4d949d8d9dc
     multi_test (0.1.2)
+=======
+    multi_xml (0.5.5)
+>>>>>>> Changes to serializers
     mysql2 (0.4.4)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
@@ -204,6 +212,8 @@ GEM
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
+    typhoeus (1.1.0)
+      ethon (>= 0.9.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.2)
@@ -228,6 +238,7 @@ DEPENDENCIES
   capybara (~> 2.7, >= 2.7.1)
   coffee-rails (~> 4.2)
   cucumber (~> 2.4)
+  httparty (~> 0.14.0)
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
@@ -235,15 +246,13 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-controller-testing (~> 1.0, >= 1.0.1)
-<<<<<<< 9e1e1cde387b9ceb2d524ee36b0700a1884f879b
   rspec (~> 3.5)
   rspec-rails (~> 3.5, >= 3.5.2)
-=======
->>>>>>> Initial tests for layout and routes
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
+  typhoeus (~> 1.1)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console
