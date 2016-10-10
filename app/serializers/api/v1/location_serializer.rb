@@ -1,3 +1,3 @@
-class Api::V1::LocationSerializer < Api::V1::BaseSerializer
+class Api::V1::LocationSerializer < ActiveModel::Serializer
   attributes :id, :name, :latitude, :longitude
 end

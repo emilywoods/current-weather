@@ -1,3 +1,1 @@
-ActiveModel::Serializer.config.tap do |config|
-  config.embed = :ids
-end
+ActiveModel::Serializer.config.adapter = :json
