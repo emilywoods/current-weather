@@ -40,15 +40,6 @@ class LocationTest < ActiveSupport::TestCase
     assert_equal mixed_case_location.downcase, @location.reload.name
   end
 
-  test "latitude should not be too long" do
-  #  @location.latitude.to_s.split(".").length()
-  #  assert_not @location.valid?
-  end
-
-  test "longitude should not be too long" do
-  #  @location.longitude.to_s.split(".").length()
-  #  assert_not @location.valid?
-  end
 
 
 end

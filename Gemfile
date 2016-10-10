@@ -49,6 +49,8 @@ end
 
 group :test do
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.1'
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
+  gem 'cucumber', '~> 2.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
