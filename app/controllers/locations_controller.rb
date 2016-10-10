@@ -10,7 +10,14 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+
+    if @location.latitude && @location.longitude
+      @current_weather = CurrentWeather.new(@location.latitude,@location.longitude)
+    else
+      render :index
+    end
   end
+
 
   def create
     @location = Location.new(location_params)

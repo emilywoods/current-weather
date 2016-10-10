@@ -1,7 +1,12 @@
-<% provide(:title, @location.name) %>
+<%= provide(:title, @location.name) %>
 <h1>
   <%= render partial: 'show', locals: {location: @location}%>
 </h1>
+<h2>
+    Weather Summary: <%= @current_weather.current_summary %>
+<p> </p>
+    Temperature: <%= @current_weather.temp_F%>
+</h2>
 <p>
   <%= link_to "Edit", edit_location_path(@location) %>
   <%= link_to "Delete", @location, method: :delete, data: { confirm: "Are you sure?"} %>
