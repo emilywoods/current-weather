@@ -8,6 +8,6 @@ class WeatherController < ApplicationController
     else
       render :index
     end
-
+  end
 
 end

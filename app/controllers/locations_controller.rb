@@ -12,6 +12,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
 
     if @location.latitude && @location.longitude
+<<<<<<< bc58748e6e610ed21265252e6253c01d12ad852c
 
       @weather_recording = WeatherRecording.assign_weather(@location)
 
@@ -27,6 +28,7 @@ class LocationsController < ApplicationController
     end
 
   end
+
 
   def create
     @location = Location.new(location_params)
