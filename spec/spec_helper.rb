@@ -4,17 +4,10 @@
 # this file to always be loaded, without a need to explicitly require it in any
 # files.
 #
-# Given that it is always loaded, you are encouraged to keep this file as
-# light-weight as possible. Requiring heavyweight dependencies from this file
-# will add to the boot time of your test suite on EVERY test run, even for an
-# individual file that may not need all of that loaded. Instead, consider making
-# a separate helper file that requires the additional dependencies and performs
-# the additional setup, and require it from the spec files that actually need
-# it.
-#
-# The `.rspec` file also contains a few flags that are not defaults but that
-# users commonly want.
-#
+ENV["RAILS_ENV"] ||= 'test'
+require File.expand_path("../../config/environment", __FILE__)
+require 'rspec/rails'
+#require 'rspec/autorun'
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 RSpec.configure do |config|
@@ -97,4 +90,5 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  config.include Capybara::DSL
 end

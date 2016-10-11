@@ -31,6 +31,9 @@ describe Location do
   describe "location is already saved" do
     before do
       location_with_same_coordinates = @location.dup
+
+      location_with_same_coordinates.latitude = @location.latitude
+      location_with_same_coordinates.longitude = @location.longitude
       location_with_same_coordinates.save
     end
 
