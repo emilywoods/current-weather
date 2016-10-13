@@ -1,11 +1,11 @@
 class WeatherController < ApplicationController
 
-  def current_weather
+  def weather_recording
     if params[:latitude] && params[:longitude]
-      @current_weather = CurrentWeather.new(params[:latitude],params[:longitude])
+      @weather_recording = WeatherRecording.new
+      @weather_recording.location = Location.find(params[:id])
     else
-      #render :index
-      @current_weather = CurrentWeather.new.('51.8969', '8.4863')
+      render :index
   end
 
 end

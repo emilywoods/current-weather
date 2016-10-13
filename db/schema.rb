@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006114633) do
-
-  create_table "current_weathers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "description"
-    t.decimal  "temperature",   precision: 10
-    t.decimal  "precipitation", precision: 10
-    t.decimal  "windspeed",     precision: 10
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
+ActiveRecord::Schema.define(version: 20161013100145) do
 
   create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -29,6 +20,16 @@ ActiveRecord::Schema.define(version: 20161006114633) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["latitude", "longitude"], name: "index_locations_on_latitude_and_longitude", unique: true, using: :btree
+  end
+
+  create_table "weather_recordings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "description"
+    t.decimal  "temperature",   precision: 10
+    t.decimal  "precipitation", precision: 10
+    t.decimal  "windspeed",     precision: 10
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "location_id"
   end
 
 end
