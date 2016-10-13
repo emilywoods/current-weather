@@ -1,10 +1,11 @@
 class Location < ApplicationRecord
-  has_many :current_weathers
-  before_save { name.downcase! }
+  has_many :weather_recordings
+  
+  before_save { name.capitalize! }
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
-  validates :latitude, presence: true, length: { maximum: 4 }, uniqueness: { case_sensitive: false }
-  validates :longitude, presence: true, length: { maximum: 4 }, uniqueness: { case_sensitive: false }
+  validates :latitude, presence: true, uniqueness: { case_sensitive: false }
+  validates :longitude, presence: true, uniqueness: { case_sensitive: false }
 
 
 end

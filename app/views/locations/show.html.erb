@@ -3,9 +3,9 @@
   <%= render partial: 'show', locals: {location: @location}%>
 </h1>
 <h2>
-    Weather Summary: <%= @current_weather.current_summary %>
+    Weather Summary: <%= @weather_recording.current_summary%>
 <p> </p>
-    Temperature: <%= @current_weather.temp_F%> oF
+    Temperature: <%= @weather_recording.temp_F%> oF
 </h2>
 <p>
   <%= link_to "Edit", edit_location_path(@location) %>
