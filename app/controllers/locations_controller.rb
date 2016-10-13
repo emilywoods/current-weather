@@ -25,6 +25,7 @@ class LocationsController < ApplicationController
       @weather_recording.temperature = @weather_recording.update_temperature
       @weather_recording.save
 
+
     else
       render :index
     end
