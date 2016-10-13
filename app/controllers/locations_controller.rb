@@ -12,8 +12,6 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
 
     if @location.latitude && @location.longitude
-<<<<<<< bc58748e6e610ed21265252e6253c01d12ad852c
-
       @weather_recording = WeatherRecording.assign_weather(@location)
 
     #  @weather_recording = WeatherRecording.new #new empty weather_recording
@@ -21,8 +19,7 @@ class LocationsController < ApplicationController
     #  @weather_recording.description = @weather_recording.update_weather
     #  @weather_recording.description = @weather_recording.update_description
     #  @weather_recording.temperature = @weather_recording.update_temperature
-      @weather_recording.save
-
+      @weather_recording.save 
     else
       render :index
     end
