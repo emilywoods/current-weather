@@ -1,7 +1,7 @@
 <% provide(:title, 'All locations')%>
 <h1>All Locations</h1>
-<h2>
-  <ul class = "locations">
-    <%= render partial: 'show'%>
-  </ul>
-</h2>
+<ul class = "locations">
+
+    <%= render partial: 'show', collection: @locations, as: :location %>
+
+</ul>

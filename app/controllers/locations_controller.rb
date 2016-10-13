@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
 
     if @location.latitude && @location.longitude
-      @current_weather = CurrentWeather.new(@location.latitude,@location.longitude)
+      @current_weather = CurrentWeather.update_weather
     else
       render :index
     end
