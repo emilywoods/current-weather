@@ -43,6 +43,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+<<<<<<< df4e61f35f370173b363c5c265ee84e7132d9e2c
 <<<<<<< 40c1c4aa52987a516ba947e3aa7d374257f070cc
     addressable (2.4.0)
     arel (7.1.4)
@@ -51,12 +52,17 @@ GEM
     arel (7.1.2)
     autoprefixer-rails (6.5.0.1)
 >>>>>>> Add bootstrap-sass to implement style changes
+=======
+    arel (7.1.4)
+    autoprefixer-rails (6.5.0.2)
+>>>>>>> Changes to add weather to db
       execjs
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.6)
+<<<<<<< df4e61f35f370173b363c5c265ee84e7132d9e2c
     capybara (2.10.1)
       addressable
       mime-types (>= 1.16)
@@ -64,6 +70,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+=======
+>>>>>>> Changes to add weather to db
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -229,6 +237,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< df4e61f35f370173b363c5c265ee84e7132d9e2c
+=======
+  active_model_serializers (= 0.10.2)
+  activerecord (~> 5.0, >= 5.0.0.1)
+>>>>>>> Changes to add weather to db
   bootstrap-sass (= 3.3.6)
   byebug
   capybara (~> 2.7, >= 2.7.1)
