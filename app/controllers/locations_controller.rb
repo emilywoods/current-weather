@@ -12,6 +12,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
 
     if @location.latitude && @location.longitude
+<<<<<<< ae26dcdf0151fa3fc8bb3fa661e3646db8f5de92
       @weather_recording = WeatherRecording.assign_weather(@location)
 
     #  @weather_recording = WeatherRecording.new #new empty weather_recording
@@ -20,6 +21,12 @@ class LocationsController < ApplicationController
     #  @weather_recording.description = @weather_recording.update_description
     #  @weather_recording.temperature = @weather_recording.update_temperature
       @weather_recording.save 
+=======
+      @weather_recording = WeatherRecording.new
+      @weather_recording.location = Location.find(params[:id])
+      @weather_recording.update_weather
+
+>>>>>>> Change new of DB to WeatherRecording from CurrentWeather. Connect weather to locations db
     else
       render :index
     end
