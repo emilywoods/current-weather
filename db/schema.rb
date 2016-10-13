@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< 331cdac7d96c571c2e87879d7831abdae57d5f37
 ActiveRecord::Schema.define(version: 20161013161011) do
+=======
+ActiveRecord::Schema.define(version: 20161013100145) do
+>>>>>>> Change new of DB to WeatherRecording from CurrentWeather. Connect weather to locations db
 
   create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -30,7 +34,10 @@ ActiveRecord::Schema.define(version: 20161013161011) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.integer  "location_id"
+<<<<<<< 331cdac7d96c571c2e87879d7831abdae57d5f37
     t.datetime "recorded_at"
+=======
+>>>>>>> Change new of DB to WeatherRecording from CurrentWeather. Connect weather to locations db
   end
 
 end

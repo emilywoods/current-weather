@@ -9,4 +9,5 @@ class WeatherController < ApplicationController
       render :index
     end
 
+
 end
