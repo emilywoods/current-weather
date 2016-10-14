@@ -32,7 +32,6 @@ class LocationsController < ApplicationController
     end
   end
 
-
   def create
     @location = Location.new(location_params)
     if @location.save

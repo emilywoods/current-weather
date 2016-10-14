@@ -6,6 +6,7 @@ class Api::V1::LocationsController < Api::V1::BaseController
     respond_to do |format|
       format.html {render Api::V1::LocationDeserializer.new(location)}
       format.json {render(json: Api::V1::LocationSerializer.new(location).to_json)}
+      #why not use format.json { render :json => location}??
     end
   end
 
