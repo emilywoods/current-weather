@@ -15,10 +15,8 @@ class Api::V1::LocationsController < Api::V1::BaseController
     respond_to do |format|
       if location.save
         format.json {render json: location, status: 201, location: [:api, location]}
-        format.xml { render xml: location, status: 201}
       else
         format.json {render json: location.errors, status: 422}
-        format.xml { render xml: location.errors, status: 422}
       end
     end
   end
@@ -27,9 +25,8 @@ class Api::V1::LocationsController < Api::V1::BaseController
     locations = Location.all
 
     respond_to do |format|
-      format.html {render :text => locations.html_content}
+      format.html { render :text => locations.html_content }
       format.json { render :json => locations }
-      format.xml { render :xml => locations }
     end
   end
 
@@ -39,10 +36,8 @@ class Api::V1::LocationsController < Api::V1::BaseController
     respond_to do |format|
       if location.edit(location_params)
         format.json {render json: location, status: 200, location: [:api, location]}
-        format.xml { render xml: location, status: 200}
       else
         format.json {render json: location.errors, status:422}
-        format.xml {render xml: location.errors, status:422}
       end
     end
   end
@@ -53,12 +48,28 @@ class Api::V1::LocationsController < Api::V1::BaseController
     respond_to do |format|
       if location.destroy
         format.json {render json: location, status: 204}
-        format.xml { render xml: location, status: 204}
       else
         format.json {render json: location.errors, status:500}
-        format.xml {render xml: location.errors, status:500}
       end
     end
+  end
+
+  def update_weather
+    location = Location.find(params[:id])
+    weather_recording = WeatherRecording.new
+    weather_recording.location = Location.find(params[:id])
+    current_summary = weather_recording.update_weather
+
+    respond_to do |format|
+
+      if location.latitude && location.longitude
+        format.json {render json: current_summary}
+      else
+        format.json {render json: location.errors, status:400}
+      end
+
+    end
+
   end
 
   private
