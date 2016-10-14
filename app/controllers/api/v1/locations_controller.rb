@@ -24,7 +24,7 @@ class Api::V1::LocationsController < Api::V1::BaseController
     locations = Location.all
 
     respond_to do |format|
-      format.html {render :text => locations.html_content}
+      format.html { render :text => locations.html_content }
       format.json { render :json => locations }
     end
   end
@@ -51,6 +51,24 @@ class Api::V1::LocationsController < Api::V1::BaseController
         format.json {render json: location.errors, status:500}
       end
     end
+  end
+
+  def update_weather
+    location = Location.find(params[:id])
+    weather_recording = WeatherRecording.new
+    weather_recording.location = Location.find(params[:id])
+    current_summary = weather_recording.update_weather
+
+    respond_to do |format|
+
+      if location.latitude && location.longitude
+        format.json {render json: current_summary}
+      else
+        format.json {render json: location.errors, status:400}
+      end
+
+    end
+
   end
 
   private
