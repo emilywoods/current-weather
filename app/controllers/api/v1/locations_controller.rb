@@ -53,20 +53,28 @@ class Api::V1::LocationsController < Api::V1::BaseController
     end
   end
 
+
   def update_weather
     location = Location.find(params[:id])
-    weather_recording = WeatherRecording.new
-    weather_recording.location = Location.find(params[:id])
-    current_summary = weather_recording.update_weather
+
+    weather_recording = WeatherRecording.new #new empty weather_recording
+    weather_recording.location = Location.find(params[:id]) #assigns location id to weather_recording
+
+    weather_recording.description = weather_recording.update_weather #there must be a nicer way to do this...
+    weather_recording.description = weather_recording.update_description
+    weather_recording.temperature = weather_recording.update_temperature
+    weather_recording.windspeed = weather_recording.update_windspeed
+    weather_recording.precipitation = weather_recording.update_precip
+    weather_recording.updated_at = weather_recording.updated_at
+    weather_recording.created_at = location.created_at
+
 
     respond_to do |format|
-
       if location.latitude && location.longitude
-        format.json {render json: current_summary}
+        format.json {render json: weather_recording}
       else
         format.json {render json: location.errors, status:400}
       end
-
     end
 
   end
