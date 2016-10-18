@@ -12,6 +12,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
 
     if @location.latitude && @location.longitude
+<<<<<<< dac8d99a95735e8a49d17ee3023aa92d0a0a9cc1
 <<<<<<< 3b83278f0bbb383bc301b3cfc979f772417e65ad
       @weather_recording = WeatherRecording.assign_weather(@location)
 
@@ -30,7 +31,16 @@ class LocationsController < ApplicationController
 >>>>>>> Implement post to slack each time the weather is shown for a location
       @weather_recording.save
 
+=======
+      @weather_recording = WeatherRecording.assign_weather(@location)
+>>>>>>> Slack integration changes
 
+    #  @weather_recording = WeatherRecording.new #new empty weather_recording
+    #  @weather_recording.location = Location.find(params[:id]) #assigns location id to weather_recording
+    #  @weather_recording.description = @weather_recording.update_weather
+    #  @weather_recording.description = @weather_recording.update_description
+    #  @weather_recording.temperature = @weather_recording.update_temperature
+    #  @weather_recording.save
 
     else
       render :index
@@ -76,10 +86,14 @@ class LocationsController < ApplicationController
 =======
 =======
     @location = Location.find(params[:id])
+<<<<<<< dac8d99a95735e8a49d17ee3023aa92d0a0a9cc1
 
 >>>>>>> Add slack integration
     @slack_post = WeatherRecording.slack_post
 >>>>>>> Implement post to slack each time the weather is shown for a location
+=======
+    @slack_post = SlackPost.notify_slack
+>>>>>>> Slack integration changes
     flash[:success] = "Posted to Slack!"
   end
 
