@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/home',       to: 'static_pages#home'
 
   resources :locations
+  post 'locations/:id', to: 'locations#post', via: [:post]
 
   #api
   namespace :api, :defaults => { :format => :json } do
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :locations, only: [:index, :new, :show, :edit, :destroy]
       get '/locations/:id/update_weather' => 'locations#update_weather', via: [:update_weather]
+
     end
   end
 
