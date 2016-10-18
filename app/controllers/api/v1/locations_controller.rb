@@ -1,77 +1,88 @@
-class LocationsController < ApplicationController
-
-  def index
-    @locations = Location.all
-
-    #@weather_recording = WeatherRecording.update_all_weather
-    #@weather_recording.save
-    #or @weather_recording.delay = WeatherRecording.update_all_weather
-
-  end
-
-  def new
-     @location = Location.new
-  end
+class Api::V1::LocationsController < Api::V1::BaseController
 
   def show
-    @location = Location.find(params[:id])
+    location = Location.find(params[:id])
 
-    if @location.latitude && @location.longitude
-      @weather_recording = WeatherRecording.assign_weather(@location)
-
-    #  @weather_recording = WeatherRecording.new #new empty weather_recording
-    #  @weather_recording.location = Location.find(params[:id]) #assigns location id to weather_recording
-    #  @weather_recording.description = @weather_recording.update_weather
-    #  @weather_recording.description = @weather_recording.update_description
-    #  @weather_recording.temperature = @weather_recording.update_temperature
-      @weather_recording.save
-
-    else
-      render :index
+    respond_to do |format|
+      format.html {render Api::V1::LocationDeserializer.new(location)}
+      format.json {render(json: Api::V1::LocationSerializer.new(location).to_json)}
+      #why not use format.json { render :json => location}??
     end
-
   end
 
   def create
-    @location = Location.new(location_params)
-    if @location.save
-      flash[:success] = "New location added!"
-      render :show
-    else
-      render :new
+    location = Location.new(location_params)
+    respond_to do |format|
+      if location.save
+        format.json {render json: location, status: 201, location: [:api, location]}
+      else
+        format.json {render json: location.errors, status: 422}
+      end
     end
   end
 
-  def edit
-    @location = Location.find(params[:id])
+  def index
+    locations = Location.all
+
+    respond_to do |format|
+      format.html { render :text => locations.html_content }
+      format.json { render :json => locations }
+    end
   end
 
   def update
-    @location = Location.find(params[:id])
-    if @location.update_attributes(location_params)
-      flash[:success] = "Location updated!"
-      redirect_to @location
-    else
-      render :edit
+    location = Location.find(params[:id])
+
+    respond_to do |format|
+      if location.edit(location_params)
+        format.json {render json: location, status: 200, location: [:api, location]}
+      else
+        format.json {render json: location.errors, status:422}
+      end
     end
   end
 
   def destroy
-    Location.find(params[:id]).destroy
-    flash[:success] = "Location deleted"
-    redirect_to locations_url
+    location = Location.find(params[:id])
+
+    respond_to do |format|
+      if location.destroy
+        format.json {render json: location, status: 204}
+      else
+        format.json {render json: location.errors, status:500}
+      end
+    end
   end
 
-  def post
-    @location = Location.find(params[:id])
-    @slack_post = SlackPost.notify_slack
-    flash[:success] = "Posted to Slack!"
+
+  def update_weather
+    location = Location.find(params[:id])
+
+    weather_recording = WeatherRecording.new #new empty weather_recording
+    weather_recording.location = Location.find(params[:id]) #assigns location id to weather_recording
+
+    weather_recording.description = weather_recording.update_weather #there must be a nicer way to do this...
+    weather_recording.description = weather_recording.update_description
+    weather_recording.temperature = weather_recording.update_temperature
+    weather_recording.windspeed = weather_recording.update_windspeed
+    weather_recording.precipitation = weather_recording.update_precip
+    weather_recording.updated_at = weather_recording.updated_at
+    weather_recording.created_at = location.created_at
+
+
+    respond_to do |format|
+      if location.latitude && location.longitude
+        format.json {render json: weather_recording}
+      else
+        format.json {render json: location.errors, status:400}
+      end
+    end
+
   end
-
-
 
   private
+
     def location_params
-      params.require(:location).permit(:name, :latitude, :longitude)
+      params.require(:locations).permit(:name, :latitude, :longitude)
     end
 end

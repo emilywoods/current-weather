@@ -32,12 +32,6 @@ gem 'httparty', '~> 0.14.0'
 gem 'delayed_job', '~> 4.1', '>= 4.1.2'
 gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.1'
 
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Schedule tasks with Ruby
 gem 'rufus-scheduler', '~> 3.2', '>= 3.2.2'
 
 # Use Capistrano for deployment
@@ -59,6 +53,7 @@ end
 
 group :test do
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.1'
+<<<<<<< HEAD
   gem 'cucumber', '~> 2.4'
 end
 
@@ -66,6 +61,8 @@ group :development, :test do
   gem 'rspec', '~> 3.5'
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'capybara', '~> 2.7', '>= 2.7.1'
+=======
+>>>>>>> schedule-updates
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
