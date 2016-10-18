@@ -23,18 +23,14 @@ class LocationsController < ApplicationController
 =======
       @weather_recording = WeatherRecording.new #new empty weather_recording
       @weather_recording.location = Location.find(params[:id]) #assigns location id to weather_recording
+
       @weather_recording.description = @weather_recording.update_weather
       @weather_recording.description = @weather_recording.update_description
       @weather_recording.temperature = @weather_recording.update_temperature
 >>>>>>> Implement post to slack each time the weather is shown for a location
       @weather_recording.save
 
-      webhook_url = 'https://hooks.slack.com/services/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'
-      payload = {
-        text: "#{@weather_recording.description} weather in #{@location.name}. The temperature is #{@weather_recording.temperature} C."
-      }
-      HTTParty.post(URI.parse(webhook_url), :body => JSON.dump(payload), :headers => { 'Content-Type' => 'application/json' } )
-      flash[:success] = "Posted to Slack!"
+
 
     else
       render :index
@@ -73,10 +69,15 @@ class LocationsController < ApplicationController
   end
 
   def post
+<<<<<<< db8175025c29d25b7a127303e1bab9f0e39dbd98
 <<<<<<< 3b83278f0bbb383bc301b3cfc979f772417e65ad
     @location = Location.find(params[:id])
     @slack_post = SlackPost.notify_slack
 =======
+=======
+    @location = Location.find(params[:id])
+
+>>>>>>> Add slack integration
     @slack_post = WeatherRecording.slack_post
 >>>>>>> Implement post to slack each time the weather is shown for a location
     flash[:success] = "Posted to Slack!"
