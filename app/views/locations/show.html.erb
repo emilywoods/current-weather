@@ -11,4 +11,5 @@
 <p>
   <%= link_to "Edit", edit_location_path(@location) %>
   <%= link_to "Delete", @location, method: :delete, data: { confirm: "Are you sure?"} %>
+  <%= link_to "Post to Slack", @location, method: :post %>
 </p>

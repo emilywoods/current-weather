@@ -11,15 +11,9 @@ class LocationsController < ApplicationController
   def show
     @location = Location.find(params[:id])
 
-<<<<<<< 5da2407ee3f0004793c85330b91c07f7b64552eb
-
-    weather_recording = WeatherRecording.new #new empty weather_recording
-    weather_recording.location = Location.find(params[:id]) #assigns location id to weather_recording
-
-
     if @location.latitude && @location.longitude
-      @weather_recording = WeatherRecording.new
-      @weather_recording.location = Location.find(params[:id])
+      @weather_recording = WeatherRecording.new #new empty weather_recording
+      @weather_recording.location = Location.find(params[:id]) #assigns location id to weather_recording
       @weather_recording.description = @weather_recording.update_weather
       @weather_recording.description = @weather_recording.update_description
       @weather_recording.temperature = @weather_recording.update_temperature
@@ -27,9 +21,17 @@ class LocationsController < ApplicationController
       @weather_recording.update_weather
 
 
+      webhook_url = 'https://hooks.slack.com/services/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'
+      payload = {
+        text: "#{@weather_recording.description} weather in #{@location.name}. The temperature is #{@weather_recording.temperature} C."
+      }
+      HTTParty.post(URI.parse(webhook_url), :body => JSON.dump(payload), :headers => { 'Content-Type' => 'application/json' } )
+      flash[:success] = "Posted to Slack!"
+
     else
       render :index
     end
+
   end
 
   def create
@@ -60,6 +62,11 @@ class LocationsController < ApplicationController
     Location.find(params[:id]).destroy
     flash[:success] = "Location deleted"
     redirect_to locations_url
+  end
+
+  def post
+    @slack_post = WeatherRecording.slack_post
+    flash[:success] = "Posted to Slack!"
   end
 
   private
