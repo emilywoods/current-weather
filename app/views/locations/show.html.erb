@@ -3,7 +3,7 @@
   <%= render partial: 'show', locals: {location: @location}%>
 </h1>
 <h2>
-    Weather Summary: <%= @weather_recording.current_summary%>
+    Weather Summary: <%= WeatherRecording.new.update_description%>
 <p> </p>
     Temperature: <%= @weather_recording.temp_F%><sup>o</sup>C
 
