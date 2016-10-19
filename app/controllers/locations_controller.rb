@@ -3,10 +3,10 @@ class LocationsController < ApplicationController
   def index
     @locations = Location.all
 
-    if @locations.each.latitude && @locations.each.longitude
-      @weather_recording = WeatherRecording.update_all_weather
-      #or @weather_recording.delay = WeatherRecording.update_all_weather
-    end
+    #@weather_recording = WeatherRecording.update_all_weather
+    #@weather_recording.save
+    #or @weather_recording.delay = WeatherRecording.update_all_weather
+
   end
 
   def new
