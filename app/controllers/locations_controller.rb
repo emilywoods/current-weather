@@ -20,7 +20,7 @@ class LocationsController < ApplicationController
     #  @weather_recording.description = @weather_recording.update_weather
     #  @weather_recording.description = @weather_recording.update_description
     #  @weather_recording.temperature = @weather_recording.update_temperature
-    #  @weather_recording.save
+      @weather_recording.save
 
     else
       render :index
