@@ -28,6 +28,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'httparty', '~> 0.14.0'
+# Asychronous execution
+gem 'delayed_job', '~> 4.1', '>= 4.1.2'
+gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
