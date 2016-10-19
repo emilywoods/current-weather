@@ -2,6 +2,11 @@ class LocationsController < ApplicationController
 
   def index
     @locations = Location.all
+
+    if @locations.each.latitude && @locations.each.longitude
+      @weather_recording = WeatherRecording.update_all_weather
+      #or @weather_recording.delay = WeatherRecording.update_all_weather
+    end
   end
 
   def new
@@ -96,6 +101,8 @@ class LocationsController < ApplicationController
 >>>>>>> Slack integration changes
     flash[:success] = "Posted to Slack!"
   end
+
+
 
   private
     def location_params
