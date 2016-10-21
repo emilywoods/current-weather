@@ -37,6 +37,9 @@ gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Schedule tasks with Ruby
+gem 'rufus-scheduler', '~> 3.2', '>= 3.2.2'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
