@@ -161,6 +161,7 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+<<<<<<< e71d060b27c04f96aa4986fcc1911a0b9f7a4b69
     rspec (3.5.0)
       rspec-expectations (~> 3.5.0)
       rspec-mocks (~> 3.5.0)
@@ -181,6 +182,8 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+=======
+>>>>>>> Install gem for scheduled updates
     rufus-scheduler (3.2.2)
     sass (3.4.22)
     sass-rails (5.0.6)
@@ -243,8 +246,11 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-controller-testing (~> 1.0, >= 1.0.1)
+<<<<<<< e71d060b27c04f96aa4986fcc1911a0b9f7a4b69
   rspec (~> 3.5)
   rspec-rails (~> 3.5, >= 3.5.2)
+=======
+>>>>>>> Install gem for scheduled updates
   rufus-scheduler (~> 3.2, >= 3.2.2)
   sass-rails (~> 5.0)
   spring
