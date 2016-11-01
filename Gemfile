@@ -54,7 +54,6 @@ end
 
 group :test do
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.1'
-<<<<<<< HEAD
   gem 'cucumber', '~> 2.4'
 end
 
@@ -62,8 +61,6 @@ group :development, :test do
   gem 'rspec', '~> 3.5'
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'capybara', '~> 2.7', '>= 2.7.1'
-=======
->>>>>>> schedule-updates
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
