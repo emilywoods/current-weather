@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019113443) do
+ActiveRecord::Schema.define(version: 20161107105809) do
 
   create_table "delayed_jobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "priority",                 default: 0, null: false
@@ -39,13 +39,16 @@ ActiveRecord::Schema.define(version: 20161019113443) do
 
   create_table "weather_recordings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "description"
-    t.decimal  "temperature",   precision: 10
-    t.decimal  "precipitation", precision: 10
-    t.decimal  "windspeed",     precision: 10
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.decimal  "temperature",              precision: 10
+    t.decimal  "precipitation",            precision: 10
+    t.decimal  "windspeed",                precision: 10
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.integer  "location_id"
     t.datetime "recorded_at"
+    t.string   "name"
+    t.float    "latitude",      limit: 24
+    t.float    "longitude",     limit: 24
   end
 
 end

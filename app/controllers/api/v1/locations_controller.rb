@@ -58,21 +58,29 @@ class Api::V1::LocationsController < Api::V1::BaseController
   def update_weather
     location = Location.find(params[:id])
 
-    weather_recording = WeatherRecording.new #new empty weather_recording
-    weather_recording.location = Location.find(params[:id]) #assigns location id to weather_recording
+    #weather_recording = WeatherRecording.new #new empty weather_recording
+    #weather_recording.location = Location.find(params[:id]) #assigns location id to weather_recording
 
-    weather_recording.description = weather_recording.update_weather #there must be a nicer way to do this...
-    weather_recording.description = weather_recording.update_description
-    weather_recording.temperature = weather_recording.update_temperature
-    weather_recording.windspeed = weather_recording.update_windspeed
-    weather_recording.precipitation = weather_recording.update_precip
-    weather_recording.updated_at = weather_recording.updated_at
-    weather_recording.created_at = location.created_at
+    weather_recording = WeatherRecording.assign_weather(location)
+    location.name
+
+    #weather_recording.description = weather_recording.update_weather #there must be a nicer way to do this...
+    #weather_recording.name = weather_recording.name
+    #weather_recording.description = weather_recording.update_description
+    #weather_recording.temperature = weather_recording.update_temperature
+    #weather_recording.windspeed = weather_recording.update_windspeed
+    #weather_recording.precipitation = weather_recording.update_precip
+    #weather_recording.updated_at = weather_recording.updated_at
+    #weather_recording.created_at = location.created_at
+    #weather_recording.name = weather_recording.name
+    #weather_recording.latitude
+    #weather_recording.longitude
 
 
     respond_to do |format|
       if location.latitude && location.longitude
         format.json {render json: weather_recording}
+        format.json {render json: location}
       else
         format.json {render json: location.errors, status:400}
       end
